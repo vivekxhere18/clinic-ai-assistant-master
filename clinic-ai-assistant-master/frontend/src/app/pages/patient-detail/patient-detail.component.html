@@ -1,0 +1,64 @@
+<div class="page">
+  <a routerLink="/" class="back-link">&larr; Back to dashboard</a>
+
+  <div class="loading" *ngIf="loading">Loading patient...</div>
+  <div class="error banner" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <ng-container *ngIf="patient as p">
+    <div class="header-row">
+      <h1>{{ p.name }}</h1>
+      <app-attention-badge [level]="p.aiSummary.attentionLevel"></app-attention-badge>
+    </div>
+
+    <section class="card">
+      <h2>Patient Information</h2>
+      <div class="info-grid">
+        <div><span class="label">Age</span>{{ p.age }}</div>
+        <div><span class="label">Gender</span>{{ p.gender || '—' }}</div>
+        <div><span class="label">Phone</span>{{ p.phone || '—' }}</div>
+        <div><span class="label">City</span>{{ p.city || '—' }}</div>
+        <div class="full-width"><span class="label">Medical History</span>{{ p.medicalHistory || '—' }}</div>
+        <div class="full-width"><span class="label">Reported Symptoms</span>{{ p.symptoms.join(', ') }}</div>
+        <div class="full-width" *ngIf="p.symptomText">
+          <span class="label">Symptom Details</span>{{ p.symptomText }}
+        </div>
+        <div><span class="label">Duration</span>{{ p.duration }}</div>
+        <div class="full-width" *ngIf="p.notes"><span class="label">Notes</span>{{ p.notes }}</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>AI Intake Summary</h2>
+      <p class="fallback-note" *ngIf="p.aiSummary.status === 'FALLBACK'">
+        AI service was unavailable — showing an offline, rule-based summary instead.
+      </p>
+
+      <p class="summary-text">{{ p.aiSummary.patientSummary }}</p>
+
+      <div class="chips">
+        <span class="chip" *ngFor="let symptom of p.aiSummary.symptomsIdentified">{{ symptom }}</span>
+      </div>
+
+      <div class="sub-section">
+        <h3>Duration</h3>
+        <p>{{ p.aiSummary.duration }}</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Missing Information</h3>
+        <ul>
+          <li *ngFor="let item of p.aiSummary.missingInformation">{{ item }}</li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <h3>Suggested Follow-up Questions</h3>
+        <ul>
+          <li *ngFor="let question of p.aiSummary.suggestedQuestions">{{ question }}</li>
+        </ul>
+      </div>
+
+      <app-disclaimer [message]="p.aiSummary.disclaimer"></app-disclaimer>
+    </section>
+  </ng-container>
+</div>

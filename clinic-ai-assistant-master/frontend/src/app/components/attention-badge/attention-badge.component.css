@@ -1,0 +1,24 @@
+.attention-badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.badge-routine {
+  background-color: #e3f5e6;
+  color: #1e7d32;
+}
+
+.badge-soon {
+  background-color: #fff3d6;
+  color: #92660a;
+}
+
+.badge-urgent {
+  background-color: #fde3e3;
+  color: #b3261e;
+}

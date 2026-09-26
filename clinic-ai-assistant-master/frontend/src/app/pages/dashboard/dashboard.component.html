@@ -1,0 +1,43 @@
+<div class="page">
+  <div class="page-header">
+    <h1>Doctor Dashboard</h1>
+    <a routerLink="/register" class="primary-btn">+ New Patient</a>
+  </div>
+
+  <input
+    type="text"
+    class="search-box"
+    placeholder="Search by name, city, or symptom..."
+    [formControl]="searchControl"
+  />
+
+  <div class="loading" *ngIf="loading">Loading patients...</div>
+  <div class="error banner" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <table class="patients-table" *ngIf="!loading && patients.length">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Symptoms</th>
+        <th>Duration</th>
+        <th>Attention</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.age }}</td>
+        <td>{{ patient.mainSymptoms }}</td>
+        <td>{{ patient.duration }}</td>
+        <td><app-attention-badge [level]="patient.attentionLevel"></app-attention-badge></td>
+        <td><a [routerLink]="['/patients', patient.id]" class="view-link">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="empty-state" *ngIf="!loading && !patients.length && !errorMessage">
+    No patients found. Try a different search or register a new patient.
+  </p>
+</div>

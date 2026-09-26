@@ -1,0 +1,88 @@
+<div class="page">
+  <h1>Register Patient</h1>
+  <p class="subtitle">Enter patient details and symptoms to generate an AI-assisted intake summary.</p>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+    <div class="form-grid">
+      <label class="field">
+        <span>Name *</span>
+        <input type="text" formControlName="name" placeholder="e.g. Rahul Sharma" />
+        <span class="error" *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+          Name is required.
+        </span>
+      </label>
+
+      <label class="field">
+        <span>Age *</span>
+        <input type="number" formControlName="age" placeholder="e.g. 34" />
+        <span class="error" *ngIf="form.get('age')?.touched && form.get('age')?.invalid">
+          Enter a valid age (0-130).
+        </span>
+      </label>
+
+      <label class="field">
+        <span>Gender</span>
+        <select formControlName="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Phone</span>
+        <input type="tel" formControlName="phone" placeholder="e.g. 9876543210" />
+      </label>
+
+      <label class="field">
+        <span>City</span>
+        <input type="text" formControlName="city" placeholder="e.g. Pune" />
+      </label>
+
+      <label class="field full-width">
+        <span>Medical History</span>
+        <textarea formControlName="medicalHistory" rows="2" placeholder="Existing conditions, past surgeries, etc."></textarea>
+      </label>
+    </div>
+
+    <fieldset class="symptoms-fieldset">
+      <legend>Symptoms *</legend>
+      <div class="symptom-options" formArrayName="symptoms">
+        <label class="checkbox" *ngFor="let symptom of symptomOptions; let i = index">
+          <input type="checkbox" [formControlName]="i" />
+          {{ symptom }}
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" formControlName="otherSymptom" />
+          Other
+        </label>
+      </div>
+      <textarea
+        formControlName="symptomText"
+        rows="2"
+        placeholder="Describe 'Other' symptom or add more detail"
+      ></textarea>
+    </fieldset>
+
+    <div class="form-grid">
+      <label class="field">
+        <span>Duration *</span>
+        <input type="text" formControlName="duration" placeholder="e.g. 2 days" />
+        <span class="error" *ngIf="form.get('duration')?.touched && form.get('duration')?.invalid">
+          Duration is required.
+        </span>
+      </label>
+
+      <label class="field full-width">
+        <span>Additional Notes</span>
+        <textarea formControlName="notes" rows="2" placeholder="Anything else worth noting"></textarea>
+      </label>
+    </div>
+
+    <div class="error banner" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <button type="submit" class="primary-btn" [disabled]="submitting">
+      {{ submitting ? 'Generating summary...' : 'Submit' }}
+    </button>
+  </form>
+</div>

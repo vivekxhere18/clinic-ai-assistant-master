@@ -1,0 +1,89 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.primary-btn {
+  background-color: #1a73e8;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.search-box {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  box-sizing: border-box;
+}
+
+.patients-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patients-table th, .patients-table td {
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.patients-table th {
+  color: #555;
+  font-weight: 600;
+}
+
+.view-link {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.loading, .empty-state {
+  color: #666;
+  padding: 1rem 0;
+}
+
+.error.banner {
+  background-color: #fde3e3;
+  border: 1px solid #f3b8b8;
+  border-radius: 4px;
+  padding: 0.65rem 0.85rem;
+  color: #b3261e;
+}
+
+@media (max-width: 640px) {
+  .patients-table, .patients-table thead, .patients-table tbody, .patients-table th, .patients-table td, .patients-table tr {
+    display: block;
+  }
+
+  .patients-table thead {
+    display: none;
+  }
+
+  .patients-table tr {
+    margin-bottom: 0.75rem;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 0.5rem;
+  }
+
+  .patients-table td {
+    border: none;
+    padding: 0.3rem 0.5rem;
+  }
+}

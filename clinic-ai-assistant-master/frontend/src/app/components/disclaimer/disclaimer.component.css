@@ -1,0 +1,19 @@
+.disclaimer-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background-color: #fff8e1;
+  border: 1px solid #f0c674;
+  border-left: 4px solid #f0a500;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  color: #6b4f00;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0.75rem 0;
+}
+
+.disclaimer-icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
