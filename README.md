@@ -2,16 +2,16 @@ Clinic AI Assistant
 
 An intelligent AI-powered assistant designed to streamline clinic workflows, manage patient data, and assist healthcare professionals efficiently.
 
-🚀 Features
+ Features
 - **AI-Powered Insights:** Smart assistance for clinic operations.
 - **Data Management:** Easy tracking of clinic/patient records.
 - **User-Friendly Interface:** Intuitive dashboard for seamless navigation.
 
-🛠️ Tech Stack
+ Tech Stack
 - **Language:** Java
 - **IDE:** IntelliJ IDEA 
 
-⚙️ How to Run
+ How to Run
 1. Clone this repository:
    ```bash
    git clone https://github.com
