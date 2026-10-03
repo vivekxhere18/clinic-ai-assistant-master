@@ -251,17 +251,6 @@ Manually verified:
 - [ ] Conversation-style follow-ups instead of a single static summary
 - [ ] Automated unit and integration tests (currently manually verified)
 
-## 🎓 Internship Details
-
-| Field | Detail |
-|---|---|
-| **Intern Name** | Vivek Bharade |
-| **Organization** | Premature Solution |
-| **Role** | Software Development Intern |
-| **Duration** | 2 Weeks |
-| **Project Title** | Clinic AI Assistant |
-
----
 
 <div align="center">
 <sub>Educational demo project. Not a medical device. Not for clinical use.</sub>
