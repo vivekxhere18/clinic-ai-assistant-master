@@ -72,6 +72,32 @@ diagnose), and gives doctors a searchable dashboard of patients before they walk
 | **Patient detail view** | Full intake data and AI summary, disclaimer banner, and a visible note whenever the offline fallback was used |
 | **Safety by design** | The AI must never diagnose, prescribe, or suggest dosages, enforced in both the Claude system prompt and the offline fallback logic |
 
+
+
+
+## 📸 Screenshots
+
+### Doctor Dashboard
+Searchable patient list with triage counts and color-coded attention badges.
+
+<img width="3474" height="2104" alt="image" src="https://github.com/user-attachments/assets/0b2470f1-9220-4dd8-8bde-49937fc1a1df" />
+
+
+
+
+### Register Patient
+Intake form with client-side validation, symptom selection, and visit details.
+
+<img width="3436" height="2016" alt="image" src="https://github.com/user-attachments/assets/fc71eb9a-9fe3-4a1c-bcd7-ad5ae9900c2e" />
+
+
+### Patient Detail & AI Intake Summary
+Full intake data alongside the structured, non-diagnostic AI summary, missing information,
+suggested follow-up questions, and the mandatory safety disclaimer.
+
+<img width="3450" height="2148" alt="image" src="https://github.com/user-attachments/assets/3deab727-3688-47f2-a4b0-5044cf988f84" />
+
+
 ## 🧰 Tech Stack
 
 | Layer | Technology |
